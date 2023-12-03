@@ -11,10 +11,10 @@ document.getElementById('sortButton').addEventListener('click', function() {
 function updateDisplay(data) {
     const content = document.getElementById('content');
     content.innerHTML = '';
-    data.forEach(item => {
+    data.forEach((item, index) => {
         const card = document.createElement('div');
         card.className = 'card';
-        card.textContent = JSON.stringify(item).replace(/\"/g, ""); // 去除引号
+        card.textContent = `${index + 1}. ${JSON.stringify(item).replace(/\"/g, "")}`; // 添加编号顺序
         content.appendChild(card);
     });
 }
