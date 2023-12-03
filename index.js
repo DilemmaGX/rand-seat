@@ -1,20 +1,26 @@
-document.getElementById('sortButton').addEventListener('click', function() {
-    fetch('./lib/default.json')
-        .then(response => response.json())
-        .then(data => {
-            data = JSON.parse(JSON.stringify(data)); // 防止改变原对象  
-            data.sort(() => Math.random() - 0.5); // 随机排序数组  
-            updateDisplay(data);
-        })
-        .catch(error => console.error('Error:', error));
-});
-function updateDisplay(data) {
-    const content = document.getElementById('content');
-    content.innerHTML = '';
-    data.forEach((item, index) => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.textContent = `${index + 1}. ${JSON.stringify(item).replace(/\"/g, "")}`; // 添加编号顺序
-        content.appendChild(card);
+window.onload = function() {
+    var generateButton = document.getElementById("generateButton");
+    generateButton.addEventListener("click", function() {
+        // 按钮和标题向上移动
+        generateButton.style.transform = "translateY(-200px)";
+        generateButton.style.opacity = "0";
+        var title = document.querySelector(".title");
+        title.style.transform = "translateY(-200px)";
+        title.style.opacity = "0";
+        // 读取并随机排序default.json中的值
+        fetch("./lib/default.json")
+            .then(response => response.json())
+            .then(data => {
+                var sortedData = data.sort(() => Math.random() - 0.5);
+                // 输出到页面中
+                var output = document.createElement("div");
+                output.classList.add("output");
+                for (var i = 0; i < sortedData.length; i++) {
+                    var seat = document.createElement("p");
+                    seat.innerText = (i + 1) + ". " + sortedData[i];
+                    output.appendChild(seat);
+                }
+                document.body.appendChild(output);
+            });
     });
 }
