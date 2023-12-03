@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         resultDiv.textContent = ''; // Clear the result div.  
         for (let i = 0; i < sortedList.length; i++) { // Loop through the shuffled array and display each item in the result div.  
             const item = sortedList[i];  
-            const itemEl = document.createElement('div align="middle"'); // Create a new div for each item.  
+            const itemEl = document.createElement('div'); // Create a new div for each item.  
             itemEl.textContent = `${i + 1}. ${item}`; // Add the item with its index to the div's text content.  
             itemEl.style.marginBottom = '10px'; // Add some space between each item.  
             resultDiv.appendChild(itemEl); // Append the item's div to the result div.  
