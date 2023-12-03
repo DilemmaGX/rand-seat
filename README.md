@@ -1,2 +1,3 @@
-# rand-seat
-Random seat number arrangement platform
+# 🪑Rand Seat
+
+Random seat arrangement platform made by DilemmaGX.
