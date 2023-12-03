@@ -2,11 +2,9 @@ window.onload = function() {
     var generateButton = document.getElementById("generateButton");
     generateButton.addEventListener("click", function() {
         // 按钮和标题向上移动
-        generateButton.style.transform = "translateY(-200px)";
-        generateButton.style.opacity = "0";
+        generateButton.classList.add("hide");
         var title = document.querySelector(".title");
-        title.style.transform = "translateY(-200px)";
-        title.style.opacity = "0";
+        title.classList.add("hide");
         // 读取并随机排序default.json中的值
         fetch("./lib/default.json")
             .then(response => response.json())
