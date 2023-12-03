@@ -1,5 +1,5 @@
 document.getElementById('sortButton').addEventListener('click', function() {  
-    fetch('default.json')  
+    fetch('./lib/default.json')  
         .then(response => response.json())  
         .then(data => {  
             data = JSON.parse(JSON.stringify(data)); // 防止改变原对象  
