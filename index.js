@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {  
     const generateBtn = document.getElementById('generate-btn');  
     const resultDiv = document.getElementById('result');  
-    const defaultJson = JSON.parse(localStorage.getItem('default.json')); // Assume that the json data is stored in localStorage under the key 'default.json'  
+    const defaultJson = JSON.parse(localStorage.getItem('./lib/default.json')); // Assume that the json data is stored in localStorage under the key 'default.json'  
     const list = defaultJson || []; // If localStorage does not have 'default.json', use an empty array as a fallback.  
     let sortedList = list.slice().sort(() => Math.random() - 0.5); // Shuffle the array randomly. Sort it in ascending order.  
     
