@@ -1,24 +1,4 @@
-window.onload = function() {
-    var generateButton = document.getElementById("generateButton");
-    generateButton.addEventListener("click", function() {
-        // 按钮和标题向上移动
-        generateButton.classList.add("hide");
-        var title = document.querySelector(".title");
-        title.classList.add("hide");
-        // 读取并随机排序default.json中的值
-        fetch("./lib/default.json")
-            .then(response => response.json())
-            .then(data => {
-                var sortedData = data.sort(() => Math.random() - 0.5);
-                // 输出到页面中
-                var output = document.createElement("div");
-                output.classList.add("output");
-                for (var i = 0; i < sortedData.length; i++) {
-                    var seat = document.createElement("p");
-                    seat.innerText = (i + 1) + ". " + sortedData[i];
-                    output.appendChild(seat);
-                }
-                document.body.appendChild(output);
-            });
-    });
-}
+document.addEventListener('DOMContentLoaded', function() {  
+    var generateBtn = document.getElementById('generate-btn');  
+    var resultDiv = document.getElementById('result');  
+    var defaultJson = JSON.parse(localStorage.getItem('./lib/default.json')); // 从localStorage中读取default.json的内容，并将其解析为JSON对象。如果localStorage中不存在该项，则返回null。因此，您需要确保在用户第一次访问网页时，将default.json的内容存储到localStorage中。同时，由于此操作涉及到用户的隐私，因此您需要确保在使用localStorage时遵循相关的隐私政策和法规。另外，由于此操作涉及到异步操作，因此您需要确保在使用异步操作时考虑错误处理和异常处理。例如，您可以考虑使用Promise或async/await等技术来处理异步操作。如果您使用的是JavaScript模块化开发，则可以将此代码封装为一个函数，以便在需要时进行调用。例如，您可以将其封装为一个名为“generateRandSeat”的函数，并导出该函数以供其他模块使用。如果使用JavaScript模块化开发，则需要考虑模块之间的依赖关系和加载顺序。如果存在依赖关系和加载顺序问题，则需要使用工具如Webpack或Rollup等来管理和打包您的代码。另外，由于此代码涉及到DOM操作和事件处理，因此您需要确保在操作DOM之前已经加载了HTML文档。因此，您可以将此代码放在文档的底部或者使用事件监听器来确保在DOM加载完成后再执行此代码。另外，由于此代码涉及到按钮点击事件的处理，因此您需要确保在按钮点击事件发生时执行此代码。因此，您可以将此代码绑定到按钮的点击事件上。例如，您可以使用addEventListener()方法来为按钮添加点击事件监听器。另外，由于此代码涉及到网页的美化和样式设计，因此您需要确保在设计网页时考虑到页面的整体风格和美观度。例如，您可以使用CSS来设置网页的背景颜色、字体样式、边框样式、阴影效果等。同时，您还需要考虑到不同设备和浏览器的兼容性问题，以便在不同的设备和浏览器上呈现出最佳的视觉效果。最后，由于此代码涉及到用户数据的处理和展示，因此您需要确保在处理用户数据时遵循相关的隐私政策和法规。例如，您需要确保在处理用户数据时使用加密技术保护用户数据的安全性，同时在使用用户数据时遵循相关的隐私政策和法规的要求。
