@@ -29,9 +29,10 @@ body {
     background-color: #007BFF;  
     border: none;  
     border-radius: 5px;  
-    cursor: pointer;  
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
 }  
   
 #generate-btn:hover {  
-    background-color: #0056b3;  
+    background-color: #0021b1;  
 }
