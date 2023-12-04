@@ -20,3 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }  
     });  
 });
+console.clear();
+var d=new Date();
+console.log(d);
